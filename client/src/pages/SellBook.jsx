@@ -77,7 +77,7 @@ const SellBook = () => {
 
       const token = localStorage.getItem("token");
 
-      const response = await fetch("https://dersan-book-market-place.onrender.com/api/listings", {
+      const response = await fetch("https://dersan-book-marketplace.onrender.com/api/listings", {
         method: "POST",
         headers: {
           // NOTE: do NOT set Content-Type here

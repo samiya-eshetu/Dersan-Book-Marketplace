@@ -12,7 +12,7 @@ const Conversations = () => {
     const token = localStorage.getItem("token");
     if (!token) { navigate("/auth"); return; }
 
-    fetch("https://dersan-book-market-place.onrender.com/api/conversations", {
+    fetch("https://dersan-book-marketplace.onrender.com/api/conversations", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())

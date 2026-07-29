@@ -58,7 +58,7 @@ const ProfileSettings = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("https://dersan-book-market-place.onrender.com/api/listings/my-listings", {
+    fetch("https://dersan-book-marketplace.onrender.com/api/listings/my-listings", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -76,7 +76,7 @@ const ProfileSettings = () => {
     const storedUser = localStorage.getItem("user");
     if (!storedUser) return;
     const parsed = JSON.parse(storedUser);
-    fetch(`https://dersan-book-market-place.onrender.com/api/posts/user/${parsed.id}`)
+    fetch(`https://dersan-book-marketplace.onrender.com/api/posts/user/${parsed.id}`)
       .then((res) => res.json())
       .then((data) => {
         setPosts(Array.isArray(data) ? data : []);
@@ -97,7 +97,7 @@ const ProfileSettings = () => {
     data.append("profilePicture", file);
     try {
       const response = await fetch(
-        "https://dersan-book-market-place.onrender.com/api/users/update-profile",
+        "https://dersan-book-marketplace.onrender.com/api/users/update-profile",
         {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}` },
@@ -128,7 +128,7 @@ const ProfileSettings = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        "https://dersan-book-market-place.onrender.com/api/users/update-profile",
+        "https://dersan-book-marketplace.onrender.com/api/users/update-profile",
         {
           method: "PATCH",
           headers: {
@@ -178,7 +178,7 @@ const ProfileSettings = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        "https://dersan-book-market-place.onrender.com/api/users/change-password",
+        "https://dersan-book-marketplace.onrender.com/api/users/change-password",
         {
           method: "PATCH",
           headers: {
@@ -223,7 +223,7 @@ const ProfileSettings = () => {
                 const token = localStorage.getItem("token");
                 try {
                   const response = await fetch(
-                    "https://dersan-book-market-place.onrender.com/api/users/delete-account",
+                    "https://dersan-book-marketplace.onrender.com/api/users/delete-account",
                     {
                       method: "DELETE",
                       headers: { Authorization: `Bearer ${token}` },
@@ -270,7 +270,7 @@ const ProfileSettings = () => {
                 const token = localStorage.getItem("token");
                 try {
                   const response = await fetch(
-                    `https://dersan-book-market-place.onrender.com/api/listings/${listingId}`,
+                    `https://dersan-book-marketplace.onrender.com/api/listings/${listingId}`,
                     {
                       method: "DELETE",
                       headers: { Authorization: `Bearer ${token}` },
@@ -309,7 +309,7 @@ const ProfileSettings = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        `https://dersan-book-market-place.onrender.com/api/listings/${listing._id}`,
+        `https://dersan-book-marketplace.onrender.com/api/listings/${listing._id}`,
         {
           method: "PATCH",
           headers: {
@@ -355,7 +355,7 @@ const ProfileSettings = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        `https://dersan-book-market-place.onrender.com/api/listings/${listingId}`,
+        `https://dersan-book-marketplace.onrender.com/api/listings/${listingId}`,
         {
           method: "PATCH",
           headers: {

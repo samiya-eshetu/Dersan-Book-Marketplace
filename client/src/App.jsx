@@ -17,6 +17,7 @@ import Community from "./pages/Community";
 import PublicProfile from "./pages/PublicProfile.jsx";
 import { Toaster } from "react-hot-toast";
 import Notifications from "./pages/Notifications";
+import About from "./pages/About";
 import AdminReports from "./pages/AdminReports.jsx";
 
 function ProtectedRoute({ children }) {
@@ -55,6 +56,7 @@ function App() {
         <Route path="/conversations" element={<Conversations />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/conversations/:id" element={<Chat />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/sell"
           element={

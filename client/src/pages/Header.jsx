@@ -14,7 +14,7 @@ function ConversationBadge() {
     if (!token) return;
 
     const fetchUnread = () => {
-      fetch("https://dersan-book-market-place.onrender.com/api/conversations", {
+      fetch("https://dersan-book-marketplace.onrender.com/api/conversations", {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())
@@ -61,7 +61,7 @@ function NotificationBadge() {
     if (!token) return;
 
     const fetchUnread = () => {
-      fetch("https://dersan-book-market-place.onrender.com/api/notifications/unread-count", {
+      fetch("https://dersan-book-marketplace.onrender.com/api/notifications/unread-count", {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())

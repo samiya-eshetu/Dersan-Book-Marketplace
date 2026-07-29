@@ -57,8 +57,8 @@ const Authentication = () => {
     setLoading(true);
 
     const endpoint = isLogIn
-      ? "https://dersan-book-market-place.onrender.com/api/users/login"
-      : "https://dersan-book-market-place.onrender.com/api/users/register";
+      ? "https://dersan-book-marketplace.onrender.com/api/users/login"
+      : "https://dersan-book-marketplace.onrender.com/api/users/register";
 
     try {
       const response = await fetch(endpoint, {

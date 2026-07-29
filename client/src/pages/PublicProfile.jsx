@@ -31,9 +31,9 @@ const PublicProfile = () => {
   useEffect(() => {
     setLoading(true);
     Promise.all([
-      fetch(`https://dersan-book-market-place.onrender.com/api/users/${userId}`).then((r) => r.json()),
-      fetch(`https://dersan-book-market-place.onrender.com/api/posts/user/${userId}`).then((r) => r.json()),
-      fetch(`https://dersan-book-market-place.onrender.com/api/listings/user/${userId}`).then((r) => r.json()),
+      fetch(`https://dersan-book-marketplace.onrender.com/api/users/${userId}`).then((r) => r.json()),
+      fetch(`https://dersan-book-marketplace.onrender.com/api/posts/user/${userId}`).then((r) => r.json()),
+      fetch(`https://dersan-book-marketplace.onrender.com/api/listings/user/${userId}`).then((r) => r.json()),
     ])
       .then(([userData, postsData, listingsData]) => {
         setProfileUser(userData);

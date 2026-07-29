@@ -73,7 +73,7 @@ function PostCard({ post, currentUser, onDelete, onLike }) {
       return;
     }
     try {
-      const response = await fetch("https://dersan-book-market-place.onrender.com/api/reports", {
+      const response = await fetch("https://dersan-book-marketplace.onrender.com/api/reports", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -108,7 +108,7 @@ function PostCard({ post, currentUser, onDelete, onLike }) {
 
   const fetchComments = () => {
     setLoadingComments(true);
-    fetch(`https://dersan-book-market-place.onrender.com/api/posts/${post._id}/comments`)
+    fetch(`https://dersan-book-marketplace.onrender.com/api/posts/${post._id}/comments`)
       .then((res) => res.json())
       .then((data) => {
         setComments(data);
@@ -130,7 +130,7 @@ function PostCard({ post, currentUser, onDelete, onLike }) {
     }
     try {
       const response = await fetch(
-        `https://dersan-book-market-place.onrender.com/api/posts/${post._id}/comments`,
+        `https://dersan-book-marketplace.onrender.com/api/posts/${post._id}/comments`,
         {
           method: "POST",
           headers: {
@@ -479,7 +479,7 @@ function CreatePost({ currentUser, onPostCreated }) {
       data.append("content", content);
       selectedImages.forEach((img) => data.append("images", img.file));
 
-      const response = await fetch("https://dersan-book-market-place.onrender.com/api/posts", {
+      const response = await fetch("https://dersan-book-marketplace.onrender.com/api/posts", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: data,
@@ -629,7 +629,7 @@ const Community = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    fetch("https://dersan-book-market-place.onrender.com/api/posts")
+    fetch("https://dersan-book-marketplace.onrender.com/api/posts")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
@@ -652,7 +652,7 @@ const Community = () => {
               onClick={async () => {
                 toast.dismiss(t.id);
                 try {
-                  await fetch(`https://dersan-book-market-place.onrender.com/api/posts/${postId}`, {
+                  await fetch(`https://dersan-book-marketplace.onrender.com/api/posts/${postId}`, {
                     method: "DELETE",
                     headers: { Authorization: `Bearer ${token}` },
                   });
@@ -686,7 +686,7 @@ const Community = () => {
     }
     try {
       const response = await fetch(
-        `https://dersan-book-market-place.onrender.com/api/posts/${postId}/like`,
+        `https://dersan-book-marketplace.onrender.com/api/posts/${postId}/like`,
         {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}` },
