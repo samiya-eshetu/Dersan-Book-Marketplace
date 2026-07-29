@@ -31,7 +31,7 @@ const AdminReports = () => {
 
   const fetchReports = () => {
     setLoading(true);
-    fetch("http://localhost:5000/api/reports", {
+    fetch("https://dersan-book-market-place.onrender.com/api/reports", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())

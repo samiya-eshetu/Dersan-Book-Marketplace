@@ -20,7 +20,7 @@ const Chat = () => {
   useEffect(() => {
     if (!token) { navigate("/auth"); return; }
 
-    fetch("http://localhost:5000/api/conversations", {
+    fetch("https://dersan-book-market-place.onrender.com/api/conversations", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -29,7 +29,7 @@ const Chat = () => {
         setConversation(found || null);
       });
 
-    fetch(`http://localhost:5000/api/conversations/${id}/messages`, {
+    fetch(`https://dersan-book-market-place.onrender.com/api/conversations/${id}/messages`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -39,7 +39,7 @@ const Chat = () => {
         if (data.length === 0) setText("Hi, is this still available?");
 
         // mark as read
-        fetch(`http://localhost:5000/api/conversations/${id}/read`, {
+        fetch(`https://dersan-book-market-place.onrender.com/api/conversations/${id}/read`, {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -50,7 +50,7 @@ const Chat = () => {
   // polling every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      fetch(`http://localhost:5000/api/conversations/${id}/messages`, {
+      fetch(`https://dersan-book-market-place.onrender.com/api/conversations/${id}/messages`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())
@@ -76,7 +76,7 @@ const Chat = () => {
     setSending(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/conversations/${id}/messages`,
+        `https://dersan-book-market-place.onrender.com/api/conversations/${id}/messages`,
         {
           method: "POST",
           headers: {
@@ -111,7 +111,7 @@ const Chat = () => {
   const handleLike = async (msg) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/conversations/${id}/messages/${msg._id}/like`,
+        `https://dersan-book-market-place.onrender.com/api/conversations/${id}/messages/${msg._id}/like`,
         {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}` },

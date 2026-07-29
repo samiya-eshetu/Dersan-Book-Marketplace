@@ -116,7 +116,7 @@ const Notifications = () => {
       return;
     }
 
-    fetch("http://localhost:5000/api/notifications", {
+    fetch("https://dersan-book-market-place.onrender.com/api/notifications", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -127,7 +127,7 @@ const Notifications = () => {
       .catch(() => setLoading(false));
 
     // mark everything read once the page has been opened
-    fetch("http://localhost:5000/api/notifications/read-all", {
+    fetch("https://dersan-book-market-place.onrender.com/api/notifications/read-all", {
       method: "PATCH",
       headers: { Authorization: `Bearer ${token}` },
     }).catch(() => {});

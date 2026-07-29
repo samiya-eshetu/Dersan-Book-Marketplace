@@ -81,7 +81,7 @@ function BestSeller() {
   const scrollRef = useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/listings?sort=bestseller")
+    fetch("https://dersan-book-market-place.onrender.com/api/listings?sort=bestseller")
       .then((res) => res.json())
       .then((data) => setBooks(data))
       .catch((err) => console.error("Failed to fetch listings:", err));

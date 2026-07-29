@@ -23,7 +23,7 @@ const ListingDetail = () => {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/listings/${id}`)
+    fetch(`https://dersan-book-market-place.onrender.com/api/listings/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setListing(data);
@@ -50,7 +50,7 @@ const ListingDetail = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/conversations", {
+      const response = await fetch("https://dersan-book-market-place.onrender.com/api/conversations", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

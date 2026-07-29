@@ -95,7 +95,7 @@ useEffect(() => {
   if (category) params.append("category", category);
   if (sort) params.append("sort", sort);
 
-  fetch(`http://localhost:5000/api/listings?${params.toString()}`)
+  fetch(`https://dersan-book-market-place.onrender.com/api/listings?${params.toString()}`)
     .then((res) => res.json())
     .then((data) => {
       setBooks(data);
