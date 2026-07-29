@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "tailwind-scrollbar-hide/v4";
+
+* {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
