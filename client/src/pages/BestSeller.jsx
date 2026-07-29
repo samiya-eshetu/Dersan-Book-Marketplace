@@ -1,19 +1,26 @@
 import { ShoppingCart, ChevronLeft, ChevronRight, Send } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function BookCard({ book }) {
   const [imgIndex, setImgIndex] = useState(0);
+  const navigate = useNavigate();
 
-  const nextImage = () => {
+  const nextImage = (e) => {
+    e.stopPropagation();
     setImgIndex((prev) => (prev + 1) % book.images.length);
   };
 
-  const prevImage = () => {
+  const prevImage = (e) => {
+    e.stopPropagation();
     setImgIndex((prev) => (prev - 1 + book.images.length) % book.images.length);
   };
 
   return (
-    <div className="flex flex-col h-full border border-zinc-800 bg-zinc-900 hover:border-zinc-600 transition-all shadow-lg hover:shadow-zinc-800/50 p-5 shrink-0 w-56 sm:w-64 md:w-72 rounded-xl">
+    <div
+      onClick={() => navigate(`/listing/${book._id}`)}
+      className="flex flex-col h-full border border-zinc-800 bg-zinc-900 hover:border-zinc-600 transition-all shadow-lg hover:shadow-zinc-800/50 p-5 shrink-0 w-56 sm:w-64 md:w-72 rounded-xl cursor-pointer"
+    >
       <div className="relative">
         <img
           src={book.images[imgIndex]}
@@ -65,7 +72,10 @@ function BookCard({ book }) {
         {book.description}
       </p>
 
-      <button className="justify-center hover:bg-zinc-700 flex gap-2 items-center w-full py-2 rounded-lg bg-zinc-800 border border-zinc-700 mt-auto pt-3 transition-colors">
+      <button
+        onClick={(e) => e.stopPropagation()}
+        className="justify-center hover:bg-zinc-700 flex gap-2 items-center w-full py-2 rounded-lg bg-zinc-800 border border-zinc-700 mt-auto pt-3 transition-colors"
+      >
         <Send className="w-4 h-4 text-white" />
         <span className="text-white text-xs sm:text-sm font-medium hidden sm:block">
           Send a Message

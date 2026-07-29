@@ -175,12 +175,26 @@ function Header() {
           >
             EXPLORE
           </Link>
-          <a className="hover:text-white transition-colors" href="/community">
+          <Link
+            to="/community"
+            className={
+              location.pathname === "/community"
+                ? "text-blue-400 border-b-2 border-blue-400 pb-1"
+                : "hover:text-white transition-colors"
+            }
+          >
             COMMUNITY
-          </a>
-          <a className="hover:text-white transition-colors" href="/sell">
+          </Link>
+          <Link
+            to="/sell"
+            className={
+              location.pathname === "/sell"
+                ? "text-blue-400 border-b-2 border-blue-400 pb-1"
+                : "hover:text-white transition-colors"
+            }
+          >
             SELL YOUR BOOK
-          </a>
+          </Link>
 
           {/* notifications icon */}
           {user && <NotificationBadge />}
@@ -192,13 +206,22 @@ function Header() {
           {user ? (
             <div className="flex items-center gap-3">
               {/* avatar circle — click goes to profile */}
-              <div
-                onClick={() => navigate("/profile")}
-                className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold cursor-pointer hover:bg-blue-500 transition-colors"
-                title={user.name}
-              >
-                {user.name?.charAt(0).toUpperCase() || "?"}
-              </div>
+              {user.profilePicture ? (
+                <img
+                  src={user.profilePicture}
+                  onClick={() => navigate("/profile")}
+                  alt={user.name}
+                  className="w-9 h-9 rounded-full object-cover cursor-pointer border border-zinc-700 hover:opacity-80 transition-opacity"
+                />
+              ) : (
+                <div
+                  onClick={() => navigate("/profile")}
+                  className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold cursor-pointer hover:bg-blue-500 transition-colors"
+                  title={user.name}
+                >
+                  {user.name?.charAt(0).toUpperCase() || "?"}
+                </div>
+              )}
               {/* logout button */}
               <button
                 onClick={handleLogout}
@@ -222,12 +245,21 @@ function Header() {
         <div className="flex items-center gap-2 md:hidden">
           {user && <NotificationBadge />}
           {user ? (
-            <div
-              onClick={() => navigate("/profile")}
-              className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold cursor-pointer"
-            >
-              {user.name?.charAt(0).toUpperCase() || "?"}
-            </div>
+            user.profilePicture ? (
+              <img
+                src={user.profilePicture}
+                onClick={() => navigate("/profile")}
+                alt={user.name}
+                className="w-8 h-8 rounded-full object-cover cursor-pointer border border-zinc-700"
+              />
+            ) : (
+              <div
+                onClick={() => navigate("/profile")}
+                className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold cursor-pointer"
+              >
+                {user.name?.charAt(0).toUpperCase() || "?"}
+              </div>
+            )
           ) : (
             <button
               onClick={() => navigate("/auth")}
@@ -248,42 +280,42 @@ function Header() {
       {/* mobile dropdown */}
       {isOpen && (
         <nav className="md:hidden mt-4 pb-4 border-t border-zinc-800 flex flex-col gap-4 pt-4 text-sm font-medium">
-          <a
-            href="/"
+          <Link
+            to="/"
             onClick={() => setIsOpen(false)}
             className="text-blue-400"
           >
             HOME
-          </a>
-          <a
-            href="/explore"
+          </Link>
+          <Link
+            to="/explore"
             onClick={() => setIsOpen(false)}
             className="hover:text-white transition-colors"
           >
             EXPLORE
-          </a>
-          <a
-            href="/community"
+          </Link>
+          <Link
+            to="/community"
             onClick={() => setIsOpen(false)}
             className="hover:text-white transition-colors"
           >
             COMMUNITY
-          </a>
-          <a
-            href="/sell"
+          </Link>
+          <Link
+            to="/sell"
             onClick={() => setIsOpen(false)}
             className="hover:text-white transition-colors"
           >
             SELL YOUR BOOK
-          </a>
+          </Link>
           {user && (
-            <a
-              href="/notifications"
+            <Link
+              to="/notifications"
               onClick={() => setIsOpen(false)}
               className="hover:text-white transition-colors"
             >
               NOTIFICATIONS
-            </a>
+            </Link>
           )}
           {user && (
             <button
